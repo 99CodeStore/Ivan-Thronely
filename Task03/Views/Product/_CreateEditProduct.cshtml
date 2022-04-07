@@ -1,0 +1,38 @@
+﻿@model ProductViewModel
+<section>
+    <div id="divCreateEditProduct" class="modal fade" tabindex="-1" role="dialog">
+        <div id="createEditProductModalDialog" class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="frmProduct" method="post" asp-action="@(ViewData["action"])" asp-controller="Product">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><text id="txtCreateEditTitle">@(ViewData["productFunction"])</text></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input id="hfProductId" type="hidden" asp-for="ProductID" />
+                        <input id="hfUrl" type="hidden" value="@(ViewData["url"])" />
+                        <div class="form-group">
+                            <label for="inputProductCode">Product Code</label>
+                            <input id="inputProductCode" asp-for="ProductCode" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputProductName">Product Name</label>
+                            <input id="inputProductName" asp-for="ProductName" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputProductPrice">Product Price</label>
+                            <input id="inputProductPrice" asp-for="ProductPrice" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="btnCancel" type="button" class="btn btn-warning">Cancel</button>
+                        <button id="btnAddAnother" type="button" class="btn btn-secondary">Add Another Supplier</button>
+                        <button id="btnDone" type="button" class="btn btn-success">Done</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

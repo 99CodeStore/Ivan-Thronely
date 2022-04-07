@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Supplier Products";
+}
+
+<h1>Supplier Products</h1>
+<button id="btnCreateNewProduct" class="btn btn-sm btn-info">Create New</button>
+
+<div class="card-body">
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-6 mb-3">
+        <label for="selSuppliers">
+            Select a Supplier
+        </label>
+        <select class="custom-select form-control" id="selSuppliers" aria-label="Supplier">
+            <option></option>
+        </select>
+    </div>
+
+    <div class="col-lg-6 mb-3">
+        <button id="btnLoadSupplier" class="btn btn-outline-secondary" type="button">Load</button>
+    </div>
+
+    <div class="col-sm-12">
+        <table id="tblProducts" class="table table-hover dataTable"></table>
+    </div>
+</div>
+
+<div id="createEditView"></div>
+
+@section Scripts{
+    <script src="~/js/Views/Products.js" asp-append-version="true"></script>
+}

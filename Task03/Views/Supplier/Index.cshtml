@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Suppliers";
+}
+
+<h1>Suppliers</h1>
+<button id="btnCreateNewSupplier" class="btn btn-sm btn-info">Create New</button>
+
+<div class="card-body">
+    @Html.AntiForgeryToken()
+    <div class="col-sm-12">
+        <table id="tblSuppliers" class="table table-hover dataTable"></table>
+    </div>
+</div>
+
+<div id="createEditView"></div>
+
+@section Scripts{
+    <script src="~/js/Views/Suppliers.js" asp-append-version="true"></script>
+}

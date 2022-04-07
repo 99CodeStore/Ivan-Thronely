@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Purchase Orders";
+}
+<h1>Purchase Orders</h1>
+@Html.AntiForgeryToken()
+<section>
+    <form id="frmPurchaseOrder" method="post" asp-action="@(ViewData["action"])" asp-controller="PurchaseOrder">
+
+        <div class="col-lg-6 mb-3">
+            <label for="selPOSuppliers">
+                Select a Supplier
+            </label>
+            <select class="custom-select form-control" id="selPOSuppliers" aria-label="Supplier">
+                <option></option>
+            </select>
+        </div>
+
+        <div class="col-lg-6 mb-3">
+            <label for="inputPOQNr">Order No.</label>
+            <input id="inputPOQNr" class="form-control" />
+        </div>
+
+        <div class="col-lg-12 mb-3">
+            <button id="btnCreateNewPO" class="btn btn-sm btn-info">Create Purchase Order</button>
+        </div>
+    </form>
+</section>
+
+<div class="col-lg-12 mb-3">
+    <button id="btnLoadPO" class="btn btn-sm btn-secondary">Load Purchase Orders</button>
+</div>
+
+<div class="col-sm-12">
+    <table id="tblPO" class="table table-hover dataTable"></table>
+</div>
+
+<div id="createPoItemsView"></div>
+@section Scripts{
+    <script src="~/js/Views/PurchaseOrders.js" asp-append-version="true"></script>
+}
+

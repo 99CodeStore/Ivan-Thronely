@@ -1,0 +1,55 @@
+﻿@model Task03.Models.PurchaseOrderProductViewModel
+<section>
+
+    <div id="divCreateEditPoProduct" class="modal fade" tabindex="-1" role="dialog">
+        <div id="createEditProductModalDialog" class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form asp-action="_CreateEditPurchaseOrderProduct" id="frmPurchaseOrderItem" method="post" asp-controller="PurchaseOrder">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><text id="txtCreateEditTitle">@(ViewData["po_productFunction"])</text></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input id="hfSupplierId" type="hidden" />
+                        <input id="hfPO_ProductId" type="hidden" asp-for="ID" />
+                        <input id="hfUrl" type="hidden" value="@(ViewData["url"])" />
+                        <input id="hfPurchaseOrderId" type="hidden" asp-for="PurchaseOrderID" />
+
+                        <div class="form-group">
+                            <label for="selPOProducts">
+                                Select a Product
+                            </label>
+                            <select class="custom-select form-control" id="selPOProducts" aria-label="Supplier">
+                                <option></option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Quantity" class="control-label">Quantity</label>
+                            <input asp-for="Quantity" class="form-control" id="inputPOQuantity" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Tax" class="control-label">Tax</label>
+                            <input asp-for="Tax" class="form-control" id="inputTax" />
+                            <span asp-validation-for="Tax" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCancel" type="button" class="btn btn-warning">Cancel</button>
+                        <button id="btnAddAnother" type="button" class="btn btn-secondary">Add Another Product</button>
+                        <button id="btnDone" type="button" class="btn btn-success">Done</button>
+                    </div>
+                </form>
+                <div class="col-sm-12">
+                    <table id="tblPO_Items" class="table table-sm table-hover table-responsive-sm dataTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
